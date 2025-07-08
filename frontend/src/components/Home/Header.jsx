@@ -3,12 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import {
   FiMenu,
   FiX,
-  FiUser,
   FiCode,
   FiBriefcase,
   FiMail,
   FiHome,
 } from "react-icons/fi";
+import { SiHyperskill } from "react-icons/si";
+import { FaUserTie } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
@@ -26,7 +27,8 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", path: "/", icon: <FiHome /> },
-    { name: "About", path: "/about", icon: <FiUser /> },
+    { name: "Experience", path: "/experience", icon: <FaUserTie /> },
+    { name: "Skills", path: "/skills", icon: <SiHyperskill /> },
     {
       name: "Work",
       path: "/work",

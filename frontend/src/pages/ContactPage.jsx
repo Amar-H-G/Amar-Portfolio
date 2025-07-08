@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import { FiMail, FiMapPin, FiPhone, FiSend } from "react-icons/fi";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
+import { FaFacebookF } from "react-icons/fa6";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import emailjs from "emailjs-com";
+
 
 // Fix for default marker icons in Leaflet
 const DefaultIcon = L.icon({
@@ -30,30 +33,35 @@ const ContactPage = () => {
   const [map, setMap] = useState(null);
 
   // Map configuration (San Francisco coordinates)
-  const mapCenter = [37.7749, -122.4194];
-  const mapZoom = 13;
+  const mapCenter = [22.5726, 88.3639]; // Kolkata coordinates
+  const mapZoom = 15;
 
-  // Initialize map
   useEffect(() => {
     if (typeof window !== "undefined" && !map && mapRef.current) {
-      const leafletMap = L.map(mapRef.current, {
-        center: mapCenter,
-        zoom: mapZoom,
-        zoomControl: false,
-      });
+      // Add slight delay to ensure container is ready
+      setTimeout(() => {
+        const leafletMap = L.map(mapRef.current, {
+          center: mapCenter,
+          zoom: mapZoom,
+          zoomControl: false,
+        });
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(leafletMap);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(leafletMap);
 
-      L.marker(mapCenter, { icon: DefaultIcon })
-        .addTo(leafletMap)
-        .bindPopup("Our Office Location");
+        L.marker(mapCenter, { icon: DefaultIcon })
+          .addTo(leafletMap)
+          .bindPopup("Amar's Location - Kolkata");
 
-      setMap(leafletMap);
+        setMap(leafletMap);
 
-      return () => leafletMap.remove();
+        // Force reflow
+        leafletMap.invalidateSize();
+
+        return () => leafletMap.remove();
+      }, 100);
     }
   }, [map]);
 
@@ -67,12 +75,52 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: "", email: "", message: "" });
-  };
 
+    // Send the message to YOU
+    emailjs
+      .send(
+        "service_synikh8",
+        "template_contact_me",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "JjoKUBk7VSjDSt53T"
+      )
+      .then(
+        (result) => {
+          console.log("Email sent to me successfully:", result.text);
+
+          // Now send auto-reply to the user
+          emailjs
+            .send(
+              "service_synikh8",
+              "template_auto_reply",
+              {
+                user_name: formData.name,
+                user_email: formData.email,
+                message: formData.message,
+              },
+              "JjoKUBk7VSjDSt53T"
+            )
+            .then(() => {
+              setIsSubmitted(true);
+              setTimeout(() => setIsSubmitted(false), 3000);
+              setFormData({ name: "", email: "", message: "" });
+            })
+            .catch((error) => {
+              console.error("Auto-reply failed:", error.text);
+              alert("Auto-reply failed. Please try again later.");
+            });
+        },
+        (error) => {
+          console.error("Message to me failed:", error.text);
+          alert("Message failed to send. Please try again later.");
+        }
+      );
+  };
+  
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Background Video */}
@@ -233,7 +281,7 @@ const ContactPage = () => {
                     </div>
                     <div className="ml-4">
                       <h3 className="text-lg font-medium text-white">Email</h3>
-                      <p className="text-gray-200">contact@example.com</p>
+                      <p className="text-gray-200">amarpatra932@gmail.com</p>
                     </div>
                   </motion.div>
 
@@ -246,7 +294,7 @@ const ContactPage = () => {
                     </div>
                     <div className="ml-4">
                       <h3 className="text-lg font-medium text-white">Phone</h3>
-                      <p className="text-gray-200">+1 (555) 123-4567</p>
+                      <p className="text-gray-200">+91 8927426099</p>
                     </div>
                   </motion.div>
 
@@ -261,7 +309,9 @@ const ContactPage = () => {
                       <h3 className="text-lg font-medium text-white">
                         Location
                       </h3>
-                      <p className="text-gray-200">San Francisco, CA</p>
+                      <p className="text-gray-200">
+                        Chatakal, DumDum, Kolkata, west Bengal-700074
+                      </p>
                     </div>
                   </motion.div>
                 </div>
@@ -275,24 +325,32 @@ const ContactPage = () => {
                 <div className="flex space-x-4">
                   <motion.a
                     whileHover={{ y: -3, scale: 1.05 }}
-                    href="#"
+                    href="https://www.linkedin.com/in/amarpatra/"
                     className="bg-white/20 p-4 rounded-full text-white hover:bg-blue-600 transition-colors duration-300"
                   >
                     <FaLinkedin className="h-6 w-6" />
                   </motion.a>
                   <motion.a
                     whileHover={{ y: -3, scale: 1.05 }}
-                    href="#"
+                    href="https://github.com/Amar-H-G"
                     className="bg-white/20 p-4 rounded-full text-white hover:bg-gray-700 transition-colors duration-300"
                   >
                     <FaGithub className="h-6 w-6" />
                   </motion.a>
                   <motion.a
                     whileHover={{ y: -3, scale: 1.05 }}
-                    href="#"
+                    href="https://x.com/amarpatra89?t=QQAgWJ04jucV95_oK4iG4Q&s=03"
                     className="bg-white/20 p-4 rounded-full text-white hover:bg-sky-500 transition-colors duration-300"
                   >
                     <FaTwitter className="h-6 w-6" />
+                  </motion.a>
+
+                  <motion.a
+                    whileHover={{ y: -3, scale: 1.05 }}
+                    href="https://www.facebook.com/Technical.study89"
+                    className="bg-white/20 p-4 rounded-full text-white hover:bg-[#1864f2] transition-colors duration-300"
+                  >
+                    <FaFacebookF className="h-6 w-6" />
                   </motion.a>
                 </div>
               </div>
@@ -313,11 +371,14 @@ const ContactPage = () => {
               <div
                 ref={mapRef}
                 className="h-96 w-full z-0"
-                style={{ minHeight: "400px" }}
+                style={{
+                  minHeight: "400px",
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                }}
               />
               <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm">
                 <FiMapPin className="inline mr-1" />
-                <span>123 Business Ave, San Francisco, CA</span>
+                <span>DumDum, Kolkata - 700074</span>
               </div>
             </div>
           </motion.div>
