@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import ContactPage from "./pages/ContactPage";
 import Header from "./components/Home/Header";
 import Footer from "./components/Home/Footer";
+import Experience from "./pages/Experience";
+import Skills from "./pages/Skills";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/skills" element={<Skills />} />
         </Routes>
       </div>
 
