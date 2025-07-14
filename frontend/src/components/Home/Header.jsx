@@ -34,18 +34,14 @@ const Header = () => {
       path: "/work",
       icon: <FiCode />,
       subItems: [
-        { name: "Projects", path: "/projects" },
-        { name: "Case Studies", path: "/case-studies" },
+        { name: "Projects", path: "/work#projects" },
+        { name: "Case Studies", path: "/work#case-studies" },
       ],
     },
     {
       name: "Services",
       path: "/services",
       icon: <FiBriefcase />,
-      subItems: [
-        { name: "Web Development", path: "/web-dev" },
-        { name: "UI/UX Design", path: "/ui-ux" },
-      ],
     },
     { name: "Contact", path: "/contact", icon: <FiMail /> },
   ];
@@ -73,7 +69,12 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => (
-            <div key={item.name} className="relative group">
+            <div
+              key={item.name}
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown(item.name)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
@@ -85,8 +86,6 @@ const Header = () => {
                       : "text-gray-200 hover:text-white hover:bg-white/10"
                   }`
                 }
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
               >
                 <span className="mr-2">{item.icon}</span>
                 {item.name}

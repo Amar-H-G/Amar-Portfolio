@@ -5,6 +5,8 @@ import Header from "./components/Home/Header";
 import Footer from "./components/Home/Footer";
 import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
+import Work from "./pages/Work";
+import Services from "./pages/services";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/skills" element={<Skills />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       </div>
 

@@ -8,7 +8,7 @@ export default function Experience() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="max-w-4xl mx-auto bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-8 shadow-2xl"
+        className="max-w-4xl mx-auto bg-[#12172b] border border-white/20 backdrop-blur-md rounded-2xl p-8 shadow-2xl"
       >
         <h2 className="text-4xl font-bold text-white mb-6 border-b border-white/20 pb-2">
           Experience

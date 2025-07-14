@@ -27,28 +27,15 @@ import { RiTailwindCssLine } from "react-icons/ri";
 
 export default function Skills() {
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center px-4 py-24 text-white overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-center justify-center px-4 py-24 text-white overflow-hidden ">
       {/* 🔹 Background Video with Dark Overlay */}
-      <div className="absolute inset-0 -z-10">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/skills-bg.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
 
       {/* 🔹 Main Skills Container */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="max-w-6xl w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-10 shadow-2xl mx-4"
+        className="max-w-6xl w-full bg-[#1e213a] backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-10 shadow-2xl mx-4"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
           Technical Skills

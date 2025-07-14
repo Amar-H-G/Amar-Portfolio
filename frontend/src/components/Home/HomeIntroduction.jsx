@@ -31,20 +31,22 @@ const HomeIntroduction = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-indigo-500/50"
+              href="/work"
             >
               View My Work
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 bg-transparent border-2 border-indigo-400 hover:bg-indigo-900/30 rounded-lg font-medium text-lg transition-all duration-300"
+              href="/contact"
             >
               Contact Me
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
 
@@ -52,7 +54,7 @@ const HomeIntroduction = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16">
           {[
             { number: "1.5+", label: "Years Experience" },
-            { number: "10+", label: "Projects Completed" },
+            { number: "15+", label: "Projects Completed" },
             { number: "100%", label: "Client Satisfaction" },
             { number: "∞", label: "Passion for Design" },
           ].map((stat, index) => (
