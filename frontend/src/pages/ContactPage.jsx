@@ -7,7 +7,6 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import emailjs from "emailjs-com";
 
-
 // Fix for default marker icons in Leaflet
 const DefaultIcon = L.icon({
   iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
@@ -120,24 +119,9 @@ const ContactPage = () => {
         }
       );
   };
-  
+
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          className="w-full h-full object-cover"
-        >
-          <source src="/your-video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-      </div>
-
       {/* Main Content */}
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -167,7 +151,7 @@ const ContactPage = () => {
           </div>
 
           {/* Contact Form and Info Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl px-7 py-10">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -343,14 +327,6 @@ const ContactPage = () => {
                     className="bg-white/20 p-4 rounded-full text-white hover:bg-sky-500 transition-colors duration-300"
                   >
                     <FaTwitter className="h-6 w-6" />
-                  </motion.a>
-
-                  <motion.a
-                    whileHover={{ y: -3, scale: 1.05 }}
-                    href="https://www.facebook.com/Technical.study89"
-                    className="bg-white/20 p-4 rounded-full text-white hover:bg-[#1864f2] transition-colors duration-300"
-                  >
-                    <FaFacebookF className="h-6 w-6" />
                   </motion.a>
                 </div>
               </div>
