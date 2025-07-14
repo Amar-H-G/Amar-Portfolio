@@ -6,7 +6,7 @@ import Footer from "./components/Home/Footer";
 import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Work from "./pages/Work";
-import Services from "./pages/services";
+import Services from "./pages/Services";
 
 function App() {
   return (
