@@ -114,7 +114,7 @@ const Book = () => {
             Download my latest resume and explore my professional profile.
           </p>
           <a
-            href="/Amar_Latest_Resume.pdf"
+            href="/Amar_Patra(N).pdf"
             download
             className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
           >
