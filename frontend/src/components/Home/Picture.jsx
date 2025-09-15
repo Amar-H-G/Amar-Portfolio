@@ -12,7 +12,7 @@ const Picture = () => {
       {/* Main Image with elegant frame */}
       <div className="relative z-10 overflow-hidden rounded-2xl border-4 border-white/20 shadow-2xl">
         <img
-          src="/Image/image.jpeg"
+          src="/Image/image.jpg.png"
           alt="Amar"
           className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
         />
