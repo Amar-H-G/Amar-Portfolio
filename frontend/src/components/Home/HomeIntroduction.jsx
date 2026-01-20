@@ -23,7 +23,9 @@ const HomeIntroduction = () => {
 
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
             A passionate{" "}
-            <span className="text-indigo-300 font-medium">Web Developer</span>{" "}
+            <span className="text-indigo-300 font-medium">
+              Full Stack Developer
+            </span>{" "}
             creating digital experiences that are{" "}
             <span className="text-purple-300 font-medium">beautiful</span>,{" "}
             <span className="text-pink-300 font-medium">functional</span>, and{" "}
@@ -53,8 +55,8 @@ const HomeIntroduction = () => {
         {/* Stats or quick facts */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16">
           {[
-            { number: "1.5+", label: "Years Experience" },
-            { number: "15+", label: "Projects Completed" },
+            { number: "2+", label: "Years Experience" },
+            { number: "25+", label: "Projects Completed" },
             { number: "100%", label: "Client Satisfaction" },
             { number: "∞", label: "Passion for Design" },
           ].map((stat, index) => (
