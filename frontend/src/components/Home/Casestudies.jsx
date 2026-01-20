@@ -1,3 +1,4 @@
+// components/CaseStudies.jsx
 import { motion } from "framer-motion";
 import {
   FaExternalLinkAlt,
@@ -14,181 +15,170 @@ import caseStudies from "../Data/caseStudies";
 
 export default function CaseStudies() {
   return (
-    <section className="w-full min-h-screen px-4 py-12 sm:px-6 lg:px-8 bg-gradient-to-br from-[#1f1f47] to-[#181818]  text-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
-        >
-          📚 Case Studies
-        </motion.h2>
+    <section className="w-full px-4 sm:px-6 pb-2  text-white">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto"
+      >
+        {/* ================= HEADING ================= */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-start pb-3 mb-2 sm:mb-6 border-b border-white/20">
+          Case Studies
+        </h2>
 
-        <div className="space-y-16">
+        <div className="space-y-10">
           {caseStudies.map((study, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="
+                bg-[#12172b]
+                border border-white/15
+                rounded-2xl
+                p-6 sm:p-8
+                shadow-xl
+                transition duration-300
+                hover:border-indigo-400/40
+              "
             >
-              <div className="p-6 sm:p-8">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-1/3">
-                    <div className="bg-gray-700 rounded-lg aspect-video flex items-center justify-center text-gray-400 mb-4">
-                      {study.title.includes("Uber") ? (
-                        <FaCar className="text-5xl text-purple-400" />
-                      ) : study.title.includes("Book") ? (
-                        <FaBook className="text-5xl text-purple-400" />
-                      ) : study.title.includes("Questa") ||
-                        study.title.includes("Quiz") ? (
-                        <FaQuestionCircle className="text-5xl text-purple-400" />
-                      ) : study.title.includes("FundMate") ||
-                        study.title.includes("Fund") ? (
-                        <FaMoneyBillWave className="text-5xl text-purple-400" />
-                      ) : study.title.includes("Chat") ? (
-                        <FaComments className="text-5xl text-purple-400" />
-                      ) : study.title.includes("LocalShop") ||
-                        study.title.includes("Shop") ? (
-                        <FaStore className="text-5xl text-purple-400" />
-                      ) : (
-                        <span className="text-xl text-purple-300">
-                          Project Preview
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {study.tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-purple-600/20 text-purple-300 px-3 py-1 text-xs rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-400 mb-2">
-                          Technologies
-                        </h4>
-                        {study.technologies.map((tech, idx) => (
-                          <div key={idx} className="mb-3">
-                            <p className="text-xs text-gray-300 mb-1">
-                              {tech.name}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {tech.items.map((item, i) => (
-                                <span
-                                  key={i}
-                                  className="bg-gray-700 text-gray-200 px-2 py-1 text-xs rounded"
-                                >
-                                  {item}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="flex gap-3">
-                        {study.links.demo && study.links.demo !== "#" && (
-                          <a
-                            href={study.links.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm transition"
-                          >
-                            <FaExternalLinkAlt /> Live Demo
-                          </a>
-                        )}
-                        <a
-                          href={study.links.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm transition"
-                        >
-                          <FaGithub /> View Code
-                        </a>
-                      </div>
-                    </div>
+              <div className="flex flex-col lg:flex-row gap-8">
+                {/* ================= LEFT ================= */}
+                <div className="lg:w-1/3">
+                  {/* Icon Preview */}
+                  <div className="aspect-video rounded-xl border border-white/10 flex items-center justify-center mb-4">
+                    {getIcon(study.title)}
                   </div>
 
-                  <div className="md:w-2/3">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-2">
-                      {study.title}
-                    </h3>
-                    <p className="text-lg text-gray-300 mb-6">
-                      {study.description}
-                    </p>
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {study.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs px-3 py-1 rounded-full bg-white/10 border border-white/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                    <div className="mb-8">
-                      <h4 className="text-xl font-semibold mb-3">
-                        Key Features
-                      </h4>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {study.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <span className="text-purple-400 mr-2">•</span>
-                            <span className="text-gray-300">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Technologies */}
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-white/60 mb-3">
+                      Technologies
+                    </h4>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <h4 className="font-semibold mb-3 text-purple-300">
-                          Challenges
-                        </h4>
-                        <ul className="space-y-2 text-sm text-gray-300">
-                          {study.challenges.map((item, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <span className="text-gray-500 mr-2">→</span>
+                    {study.technologies.map((tech, idx) => (
+                      <div key={idx} className="mb-4">
+                        <p className="text-xs text-white/70 mb-2">
+                          {tech.name}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {tech.items.map((item, i) => (
+                            <span
+                              key={i}
+                              className="text-xs px-3 py-1 rounded bg-white/10 border border-white/10"
+                            >
                               {item}
-                            </li>
+                            </span>
                           ))}
-                        </ul>
+                        </div>
                       </div>
+                    ))}
+                  </div>
 
-                      <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <h4 className="font-semibold mb-3 text-purple-300">
-                          Solutions
-                        </h4>
-                        <ul className="space-y-2 text-sm text-gray-300">
-                          {study.solutions.map((item, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <span className="text-gray-500 mr-2">→</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  {/* Links */}
+                  <div className="flex gap-3">
+                    {study.links.demo && study.links.demo !== "#" && (
+                      <a
+                        href={study.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition"
+                      >
+                        <FaExternalLinkAlt /> Live Demo
+                      </a>
+                    )}
 
-                      <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <h4 className="font-semibold mb-3 text-purple-300">
-                          Results
-                        </h4>
-                        <ul className="space-y-2 text-sm text-gray-300">
-                          {study.results.map((item, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <span className="text-gray-500 mr-2">→</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
+                    <a
+                      href={study.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition"
+                    >
+                      <FaGithub /> View Code
+                    </a>
+                  </div>
+                </div>
+
+                {/* ================= RIGHT ================= */}
+                <div className="lg:w-2/3">
+                  <h3 className="text-2xl sm:text-3xl font-semibold mb-2">
+                    {study.title}
+                  </h3>
+
+                  <p className="text-white/70 mb-6">{study.description}</p>
+
+                  {/* Features */}
+                  <div className="mb-8">
+                    <h4 className="text-lg font-semibold mb-3">Key Features</h4>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-white/80">
+                      {study.features.map((feature, idx) => (
+                        <li key={idx} className="flex">
+                          <span className="mr-2 text-indigo-400">•</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Challenges / Solutions / Results */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <InfoBlock title="Challenges" items={study.challenges} />
+                    <InfoBlock title="Solutions" items={study.solutions} />
+                    <InfoBlock title="Results" items={study.results} />
                   </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
+}
+
+/* ================= HELPERS ================= */
+
+function InfoBlock({ title, items }) {
+  return (
+    <div className="border border-white/10 rounded-xl p-4">
+      <h4 className="font-semibold mb-3 text-indigo-400">{title}</h4>
+      <ul className="space-y-2 text-sm text-white/80">
+        {items.map((item, idx) => (
+          <li key={idx} className="flex">
+            <span className="mr-2 text-white/40">→</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function getIcon(title) {
+  const iconClass = "text-5xl text-indigo-400";
+  if (title.includes("Uber")) return <FaCar className={iconClass} />;
+  if (title.includes("Book")) return <FaBook className={iconClass} />;
+  if (title.includes("Quiz") || title.includes("Questa"))
+    return <FaQuestionCircle className={iconClass} />;
+  if (title.includes("Fund")) return <FaMoneyBillWave className={iconClass} />;
+  if (title.includes("Chat")) return <FaComments className={iconClass} />;
+  if (title.includes("Shop")) return <FaStore className={iconClass} />;
+
+  return <span className="text-white/50">Project Preview</span>;
 }

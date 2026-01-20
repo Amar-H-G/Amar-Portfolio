@@ -22,55 +22,58 @@ import {
   SiVercel,
   SiC,
   SiRender,
+  SiPostman,
+  SiSocketdotio,
 } from "react-icons/si";
 import { RiTailwindCssLine } from "react-icons/ri";
+import { MdSecurity, MdApi } from "react-icons/md";
 
 export default function Skills() {
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center px-4 py-24 text-white overflow-hidden ">
-      {/* 🔹 Background Video with Dark Overlay */}
-
-      {/* 🔹 Main Skills Container */}
+    <section className="relative z-10 w-full px-4 sm:px-6 py-20 sm:py-24 text-white">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="max-w-6xl w-full bg-[#1e213a] backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-10 shadow-2xl mx-4"
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9 }}
+        className="max-w-6xl mx-auto"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12 border-b border-white/20 pb-3">
           Technical Skills
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <SkillCard
             title="Languages"
-            icon={<FaCode className="text-indigo-300" />}
+            icon={<FaCode />}
             items={[
-              { name: "Java", icon: <FaJava /> },
               { name: "JavaScript", icon: <FaJs /> },
               { name: "HTML5", icon: <FaHtml5 /> },
               { name: "CSS3", icon: <FaCss3Alt /> },
               { name: "Python", icon: <FaPython /> },
+              { name: "Java", icon: <FaJava /> },
               { name: "SQL", icon: <FaDatabase /> },
               { name: "C", icon: <SiC /> },
             ]}
           />
 
           <SkillCard
-            title="Frameworks"
-            icon={<FaServer className="text-purple-300" />}
+            title="Frameworks & Libraries"
+            icon={<FaServer />}
             items={[
-              { name: "Django", icon: <SiDjango /> },
               { name: "React.js", icon: <FaReact /> },
+              { name: "React Native", icon: <FaReact /> },
+              { name: "Redux" },
               { name: "Express.js", icon: <FaNode /> },
+              { name: "Django", icon: <SiDjango /> },
               { name: "Bootstrap", icon: <FaBootstrap /> },
-              { name: "Tailwind", icon: <RiTailwindCssLine /> },
+              { name: "Tailwind CSS", icon: <RiTailwindCssLine /> },
             ]}
           />
 
           <SkillCard
             title="Databases"
-            icon={<FaDatabase className="text-emerald-300" />}
+            icon={<FaDatabase />}
             items={[
               { name: "MongoDB", icon: <SiMongodb /> },
               { name: "MySQL", icon: <SiMysql /> },
@@ -79,18 +82,18 @@ export default function Skills() {
 
           <SkillCard
             title="Cloud & Hosting"
-            icon={<FaCloud className="text-cyan-300" />}
+            icon={<FaCloud />}
             items={[
               { name: "Vercel", icon: <SiVercel /> },
+              { name: "Render", icon: <SiRender /> },
               { name: "PythonAnywhere", icon: <FaPython /> },
               { name: "GitHub Pages", icon: <FaGitAlt /> },
-              { name: "Render", icon: <SiRender /> },
             ]}
           />
 
           <SkillCard
             title="Version Control"
-            icon={<FaGitAlt className="text-amber-300" />}
+            icon={<FaGitAlt />}
             items={[
               { name: "Git", icon: <FaGitAlt /> },
               { name: "GitHub", icon: <FaGitAlt /> },
@@ -98,35 +101,55 @@ export default function Skills() {
           />
 
           <SkillCard
+            title="Tools & APIs"
+            icon={<MdApi />}
+            items={[
+              { name: "REST APIs", icon: <MdApi /> },
+              { name: "JWT Authentication", icon: <MdSecurity /> },
+              { name: "Multer (File Uploads)" },
+              { name: "Socket.io", icon: <SiSocketdotio /> },
+              { name: "Postman", icon: <SiPostman /> },
+            ]}
+          />
+
+          <SkillCard
             title="Soft Skills"
-            icon={<FaUserCheck className="text-pink-300" />}
+            icon={<FaUserCheck />}
             items={[
               { name: "Problem Solving" },
-              { name: "DSA" },
               { name: "Team Collaboration" },
               { name: "Agile Development" },
             ]}
           />
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 
 function SkillCard({ title, items, icon }) {
   return (
     <motion.div
-      whileHover={{ y: -5 }}
-      className="bg-white/5 border border-white/20 rounded-xl p-5 hover:bg-white/10 transition-all duration-300 shadow-lg h-full"
+      whileHover={{ y: -6 }}
+      className="
+        bg-[#12172b]
+        border border-white/15
+        rounded-2xl
+        p-5 sm:p-6
+        shadow-xl
+        transition duration-300
+        hover:border-indigo-400/40
+      "
     >
-      <div className="flex items-center gap-3 mb-4 text-xl font-semibold">
-        <span className="text-2xl">{icon}</span>
+      <div className="flex items-center gap-3 mb-4 text-lg sm:text-xl font-semibold">
+        <span className="text-2xl text-indigo-400">{icon}</span>
         <h3>{title}</h3>
       </div>
-      <ul className="space-y-2.5">
+
+      <ul className="space-y-2.5 text-sm sm:text-base text-white/85">
         {items.map((item, idx) => (
-          <li key={idx} className="flex items-center gap-2 text-white/90">
-            {item.icon && <span className="text-white">{item.icon}</span>}
+          <li key={idx} className="flex items-center gap-2">
+            {item.icon && <span className="text-white/70">{item.icon}</span>}
             <span>{item.name}</span>
           </li>
         ))}

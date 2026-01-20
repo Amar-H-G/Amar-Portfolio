@@ -85,7 +85,7 @@ const ContactPage = () => {
           from_email: formData.email,
           message: formData.message,
         },
-        "JjoKUBk7VSjDSt53T"
+        "JjoKUBk7VSjDSt53T",
       )
       .then(
         (result) => {
@@ -101,7 +101,7 @@ const ContactPage = () => {
                 user_email: formData.email,
                 message: formData.message,
               },
-              "JjoKUBk7VSjDSt53T"
+              "JjoKUBk7VSjDSt53T",
             )
             .then(() => {
               setIsSubmitted(true);
@@ -116,7 +116,7 @@ const ContactPage = () => {
         (error) => {
           console.error("Message to me failed:", error.text);
           alert("Message failed to send. Please try again later.");
-        }
+        },
       );
   };
 
@@ -131,7 +131,7 @@ const ContactPage = () => {
           className="max-w-7xl mx-auto"
         >
           {/* Header Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 mt-4 lg:mt-10">
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -151,7 +151,7 @@ const ContactPage = () => {
           </div>
 
           {/* Contact Form and Info Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl px-7 py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12  rounded-xl px-7 py-10">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

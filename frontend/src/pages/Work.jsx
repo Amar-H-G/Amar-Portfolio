@@ -1,6 +1,6 @@
 // pages/Work.jsx
 import { useState, useEffect } from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Projects from "../components/Home/Projects";
 import CaseStudies from "../components/Home/Casestudies";
 import { motion } from "framer-motion";
@@ -8,8 +8,6 @@ import { motion } from "framer-motion";
 export default function Work() {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState("projects");
-  const [isHoveringProjects, setIsHoveringProjects] = useState(false);
-  const [isHoveringCaseStudies, setIsHoveringCaseStudies] = useState(false);
 
   useEffect(() => {
     const hash = location.hash.replace("#", "");
@@ -20,113 +18,83 @@ export default function Work() {
     }
   }, [location.hash]);
 
-  // Animation variants
   const tabVariants = {
-    hover: { scale: 1.05, transition: { duration: 0.2 } },
+    hover: { y: -2 },
     tap: { scale: 0.98 },
   };
 
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
   return (
-    <div className="min-h-screen w-full text-white px-4 sm:px-6 py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto">
-        {/* Header with subtle animation */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8 md:mb-16"
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-300">
-            My Professional Work
-          </h1>
-          <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto">
-            Explore my projects and case studies that showcase my skills and
-            experience.
+    <section className="relative z-10 w-full px-4 sm:px-6 py-20 sm:py-24 text-white">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9 }}
+        className="max-w-7xl mx-auto"
+      >
+        {/* ================= HEADER ================= */}
+        <div className="text-start mb-4 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold border-b border-white/20  text-start">
+            Professional Work
+          </h2>
+          <p className="mt-1 text-white  mx-auto text-sm sm:text-base">
+            A selection of projects and in-depth case studies showcasing my
+            experience in building scalable, production-ready applications.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Tab Switcher with improved design */}
-        <div className="flex justify-center mb-8 md:mb-16">
-          <div className="flex rounded-full p-1 shadow-lg border bg-black border-gray-700">
+        {/* ================= TABS ================= */}
+        <div className="flex justify-center mb-2 sm:mb-8">
+          <div className="flex gap-2 bg-[#12172b] border border-white/15 rounded-full p-1 shadow-xl">
             <motion.button
+              variants={tabVariants}
               whileHover="hover"
               whileTap="tap"
-              variants={tabVariants}
               onClick={() => setActiveTab("projects")}
-              onMouseEnter={() => setIsHoveringProjects(true)}
-              onMouseLeave={() => setIsHoveringProjects(false)}
-              className={`relative px-6 py-3 text-lg font-medium rounded-full transition-all duration-300 ${
+              className={`px-5 sm:px-6 py-2.5 rounded-full text-sm sm:text-base font-medium transition ${
                 activeTab === "projects"
-                  ? "bg-purple-600 text-white shadow-purple-glow"
-                  : "text-gray-300 hover:text-white"
+                  ? "bg-indigo-600 text-white"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               Projects
-              {isHoveringProjects && activeTab !== "projects" && (
-                <motion.span
-                  layoutId="tabHoverIndicator"
-                  className="absolute inset-0 bg-gray-700 rounded-full -z-10"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                />
-              )}
             </motion.button>
 
             <motion.button
+              variants={tabVariants}
               whileHover="hover"
               whileTap="tap"
-              variants={tabVariants}
               onClick={() => setActiveTab("case-studies")}
-              onMouseEnter={() => setIsHoveringCaseStudies(true)}
-              onMouseLeave={() => setIsHoveringCaseStudies(false)}
-              className={`relative px-6 py-3 text-lg font-medium rounded-full transition-all duration-300 ${
+              className={`px-5 sm:px-6 py-0 rounded-full text-sm sm:text-base font-medium transition ${
                 activeTab === "case-studies"
-                  ? "bg-purple-600 text-white shadow-purple-glow"
-                  : "text-gray-300 hover:text-white"
+                  ? "bg-indigo-600 text-white"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               Case Studies
-              {isHoveringCaseStudies && activeTab !== "case-studies" && (
-                <motion.span
-                  layoutId="tabHoverIndicator"
-                  className="absolute inset-0 bg-gray-700 rounded-full -z-10"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                />
-              )}
             </motion.button>
           </div>
         </div>
 
-        {/* Content Switch with smooth transition */}
+        {/* ================= CONTENT ================= */}
         <motion.div
           key={activeTab}
           variants={contentVariants}
           initial="hidden"
           animate="visible"
-          className={`mt-6 ${
-            activeTab === "projects"
-              ? "bg-gray-800 bg-opacity-50 rounded-xl p-6"
-              : ""
-          }`}
+          className="
+            p-2 sm:p-3 md:p-4
+            shadow-xl
+          "
         >
           {activeTab === "projects" ? <Projects /> : <CaseStudies />}
         </motion.div>
-      </div>
-
-      {/* Global styles for this component */}
-      <style jsx global>{`
-        .shadow-purple-glow {
-          box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-        }
-      `}</style>
-    </div>
+      </motion.div>
+    </section>
   );
 }

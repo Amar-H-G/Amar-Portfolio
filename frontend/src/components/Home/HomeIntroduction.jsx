@@ -2,7 +2,7 @@ import { motion } from "framer-motion"; // For animations (optional)
 
 const HomeIntroduction = () => {
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white overflow-hidden">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8  bg-black/50 backdrop-blur-sm  text-white overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-20 left-10 w-40 h-40 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
