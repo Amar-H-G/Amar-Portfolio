@@ -9,6 +9,7 @@ import {
   FaQuestionCircle,
   FaComments,
   FaStore,
+  FaMobileAlt,
 } from "react-icons/fa";
 
 import caseStudies from "../Data/caseStudies";
@@ -172,6 +173,12 @@ function InfoBlock({ title, items }) {
 
 function getIcon(title) {
   const iconClass = "text-5xl text-indigo-400";
+  if (title.includes("NBD") || title.includes("Fashion") || title.includes("NearBy"))
+    return <FaStore className={iconClass} />;
+  if (title.includes("Maidfort") || title.includes("Urban") || title.includes("Grocery"))
+    return <FaMobileAlt className={iconClass} />;
+  if (title.includes("Truties") || title.includes("Dating"))
+    return <FaComments className={iconClass} />;
   if (title.includes("Uber")) return <FaCar className={iconClass} />;
   if (title.includes("Book")) return <FaBook className={iconClass} />;
   if (title.includes("Quiz") || title.includes("Questa"))

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Projects from "../components/Home/Projects";
 import CaseStudies from "../components/Home/Casestudies";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 
 export default function Work() {
   const location = useLocation();
@@ -30,6 +31,13 @@ export default function Work() {
 
   return (
     <section className="relative z-10 w-full px-4 sm:px-6 py-20 sm:py-24 text-white">
+      <SEO
+        title={activeTab === "case-studies"
+          ? "Case Studies | Amar Patra – React Native & MERN Projects"
+          : "Projects | Amar Patra – Mobile Apps, Web Platforms"}
+        description="Explore Amar Patra's professional projects: Maidfort, Truties, GroceryWalle, Urban (React Native apps), NBD Fashion (MERN), VYRA Connect, and more."
+        url={`https://amarpatra.vercel.app/work${activeTab === "case-studies" ? "#case-studies" : ""}`}
+      />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

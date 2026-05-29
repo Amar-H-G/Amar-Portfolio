@@ -22,14 +22,21 @@ const HomeIntroduction = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-            A passionate{" "}
+            A dedicated{" "}
             <span className="text-indigo-300 font-medium">
-              Full Stack Developer
+              Full Stack &amp; React Native Developer
             </span>{" "}
-            creating digital experiences that are{" "}
-            <span className="text-purple-300 font-medium">beautiful</span>,{" "}
-            <span className="text-pink-300 font-medium">functional</span>, and{" "}
-            <span className="text-blue-300 font-medium">user-focused</span>.
+            with{" "}
+            <span className="text-purple-300 font-medium">3+ years</span>{" "}
+            of hands-on experience building{" "}
+            <span className="text-pink-300 font-medium">
+              scalable web &amp; mobile applications
+            </span>
+            . Passionate about real-time systems, clean architecture, and{" "}
+            <span className="text-blue-300 font-medium">
+              user-centric digital products
+            </span>
+            .
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
@@ -55,22 +62,31 @@ const HomeIntroduction = () => {
         {/* Stats or quick facts */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16">
           {[
-            { number: "2+", label: "Years Experience" },
-            { number: "25+", label: "Projects Completed" },
-            { number: "100%", label: "Client Satisfaction" },
-            { number: "∞", label: "Passion for Design" },
+            { number: "3+", suffix: "yrs", label: "Learning Experience" },
+            { number: "1+", suffix: "yr",  label: "Industry Experience" },
+            { number: "50+", suffix: "",   label: "Projects Completed" },
+            { number: "70+", suffix: "",   label: "DSA Problems Solved" },
           ].map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-              className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-indigo-400/30 transition-all"
+              className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-indigo-400/30 transition-all group"
             >
-              <p className="text-3xl font-bold text-indigo-300 mb-2">
-                {stat.number}
+              <div className="flex items-end gap-1 mb-1">
+                <p className="text-4xl font-extrabold text-indigo-300 leading-none">
+                  {stat.number}
+                </p>
+                {stat.suffix && (
+                  <span className="text-sm font-semibold text-indigo-400/70 mb-1">
+                    {stat.suffix}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                {stat.label}
               </p>
-              <p className="text-sm text-gray-300">{stat.label}</p>
             </motion.div>
           ))}
         </div>

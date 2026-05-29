@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 import {
   FaCode,
   FaServer,
@@ -24,13 +25,21 @@ import {
   SiRender,
   SiPostman,
   SiSocketdotio,
+  SiNginx,
+  SiPusher,
 } from "react-icons/si";
 import { RiTailwindCssLine } from "react-icons/ri";
 import { MdSecurity, MdApi } from "react-icons/md";
+import { TbBinaryTree } from "react-icons/tb";
 
 export default function Skills() {
   return (
     <section className="relative z-10 w-full px-4 sm:px-6 py-20 sm:py-24 text-white">
+      <SEO
+        title="Skills | Amar Patra – React Native, MERN Stack, Socket.io"
+        description="Technical skills of Amar Patra: React Native, React.js, Node.js, MongoDB, Redux, Pusher, Socket.io, OneSignal, Video SDK, Nginx and more. 70+ DSA problems solved."
+        url="https://amarpatra.vercel.app/skills"
+      />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -86,6 +95,7 @@ export default function Skills() {
             items={[
               { name: "Vercel", icon: <SiVercel /> },
               { name: "Render", icon: <SiRender /> },
+              { name: "Nginx", icon: <SiNginx /> },
               { name: "PythonAnywhere", icon: <FaPython /> },
               { name: "GitHub Pages", icon: <FaGitAlt /> },
             ]}
@@ -105,9 +115,12 @@ export default function Skills() {
             icon={<MdApi />}
             items={[
               { name: "REST APIs", icon: <MdApi /> },
+              { name: "Socket.io", icon: <SiSocketdotio /> },
+              { name: "Pusher", icon: <SiPusher /> },
+              { name: "OneSignal (Push Notifications)" },
+              { name: "Video SDK" },
               { name: "JWT Authentication", icon: <MdSecurity /> },
               { name: "Multer (File Uploads)" },
-              { name: "Socket.io", icon: <SiSocketdotio /> },
               { name: "Postman", icon: <SiPostman /> },
             ]}
           />
@@ -116,6 +129,7 @@ export default function Skills() {
             title="Soft Skills"
             icon={<FaUserCheck />}
             items={[
+              { name: "70+ DSA Problems Solved" },
               { name: "Problem Solving" },
               { name: "Team Collaboration" },
               { name: "Agile Development" },

@@ -6,6 +6,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import emailjs from "emailjs-com";
+import SEO from "../components/SEO";
 
 // Fix for default marker icons in Leaflet
 const DefaultIcon = L.icon({
@@ -122,6 +123,11 @@ const ContactPage = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
+      <SEO
+        title="Contact | Amar Patra – Hire a React Native & Full Stack Developer"
+        description="Get in touch with Amar Patra for freelance projects, job opportunities, or collaborations. React Native & MERN Stack Developer based in Kolkata, India."
+        url="https://amarpatra.vercel.app/contact"
+      />
       {/* Main Content */}
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <motion.div

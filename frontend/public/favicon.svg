@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1629;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818cf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c084fc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#bgGrad)" rx="80"/>
+
+  <!-- Subtle inner border -->
+  <rect x="12" y="12" width="488" height="488" fill="none" stroke="url(#textGrad)" stroke-width="2" stroke-opacity="0.3" rx="72"/>
+
+  <!-- Glow circle behind letters -->
+  <circle cx="256" cy="256" r="160" fill="#6366f1" opacity="0.07"/>
+
+  <!-- AP Letters -->
+  <text
+    x="256"
+    y="318"
+    text-anchor="middle"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="900"
+    font-size="220"
+    fill="url(#textGrad)"
+    filter="url(#glow)"
+    letter-spacing="-8"
+  >AP</text>
+
+  <!-- Bottom tagline dot accent -->
+  <circle cx="200" cy="390" r="6" fill="#6366f1" opacity="0.8"/>
+  <circle cx="256" cy="390" r="6" fill="#a855f7" opacity="0.8"/>
+  <circle cx="312" cy="390" r="6" fill="#6366f1" opacity="0.8"/>
+</svg>

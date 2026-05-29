@@ -22,22 +22,28 @@ const Book = () => {
         <div className="space-y-4 text-center">
           <div className="flex flex-col items-center">
             <FaUserTie className="text-4xl text-blue-700 mb-2" />
-            <h3 className="font-bold text-lg">Full Stack Developer</h3>
-            <p className="text-xs text-gray-600">React | Node.js | Django</p>
+            <h3 className="font-bold text-lg">Full Stack & React Native Dev</h3>
+            <p className="text-xs text-gray-600">React Native | React.js | Node.js</p>
           </div>
           <div className="flex justify-center gap-2 flex-wrap">
             <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-              React
+              React Native
+            </span>
+            <span className="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs">
+              React.js
             </span>
             <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">
               Node.js
             </span>
-            <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">
-              Django
+            <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">
+              MongoDB
+            </span>
+            <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">
+              Socket.io
             </span>
           </div>
           <p className="italic text-xs text-gray-500">
-            "Clean code, reliable systems."
+            "Build fast. Ship clean. Scale smart."
           </p>
         </div>
       ),
@@ -47,21 +53,45 @@ const Book = () => {
       id: 3,
       title: "Experience",
       content: (
-        <div className="space-y-4 text-sm">
-          <div className="border-l-4 border-indigo-500 pl-3">
-            <h3 className="font-semibold text-gray-800">
-              Full Stack Developer Intern – ZoneValue
-            </h3>
-            <p className="text-gray-600 mt-1">
-              Worked on a real-estate booking platform. Built interactive UI,
-              integrated Google Calendar API for meetings, and used AWS S3 for
-              image storage.
+        <div className="space-y-3 text-sm">
+
+          {/* Current */}
+          <div className="border-l-4 border-emerald-500 pl-3">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h3 className="font-semibold text-gray-800 text-xs">
+                Mid-Level React Native Dev
+              </h3>
+              <span className="text-[10px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full">
+                Current
+              </span>
+            </div>
+            <p className="text-[11px] text-indigo-600 font-medium">OriginateSoft Pvt. Ltd. · Feb 2026</p>
+            <p className="text-gray-500 text-[11px] mt-0.5">
+              Pusher, Socket.io, OneSignal, Video SDK integration.
+            </p>
+          </div>
+
+          {/* RiiTii */}
+          <div className="border-l-4 border-indigo-400 pl-3">
+            <h3 className="font-semibold text-gray-800 text-xs">Full Stack Developer</h3>
+            <p className="text-[11px] text-indigo-600 font-medium">RiiTii · Oct 2025 – Jan 2026</p>
+            <p className="text-gray-500 text-[11px] mt-0.5">
+              React Native, Redux, Node.js, REST API integrations.
+            </p>
+          </div>
+
+          {/* ZoneValue */}
+          <div className="border-l-4 border-blue-400 pl-3">
+            <h3 className="font-semibold text-gray-800 text-xs">Full Stack Developer (Intern → Full-Time)</h3>
+            <p className="text-[11px] text-indigo-600 font-medium">ZoneValue Pvt. Ltd. · Jul – Oct 2025</p>
+            <p className="text-gray-500 text-[11px] mt-0.5">
+              React.js, Node.js, MongoDB, CRM systems.
             </p>
           </div>
 
           <a
             href="/experience"
-            className="inline-block mt-3 text-indigo-600 hover:underline text-xs"
+            className="inline-block mt-1 text-indigo-600 hover:underline text-xs"
           >
             → View full experience
           </a>
@@ -73,30 +103,38 @@ const Book = () => {
       id: 4,
       title: "My Projects",
       content: (
-        <div className="space-y-4">
-          {/* Project 1 - Minimal */}
+        <div className="space-y-2.5 text-sm">
+
+          {/* Professional */}
+          <div className="border-l-2 border-emerald-400 pl-3">
+            <h3 className="font-medium text-xs">NBD Fashion</h3>
+            <p className="text-[11px] text-gray-500">MERN · Redux · Nginx · Role CRM</p>
+          </div>
+
           <div className="border-l-2 border-blue-400 pl-3">
-            <h3 className="font-medium">Questa</h3>
-            <p className="text-xs text-gray-500">Quiz Platform with Nextjs</p>
+            <h3 className="font-medium text-xs">Maidfort (App)</h3>
+            <p className="text-[11px] text-gray-500">React Native · Pusher · OneSignal</p>
           </div>
 
-          {/* Project 2 - Minimal */}
-          <div className="border-l-2 border-green-400 pl-3 mt-3">
-            <h3 className="font-medium">FundMate</h3>
-            <p className="text-xs text-gray-500">Mutual Fund Tracker</p>
+          <div className="border-l-2 border-purple-400 pl-3">
+            <h3 className="font-medium text-xs">Truties Dating App</h3>
+            <p className="text-[11px] text-gray-500">React Native · Video SDK · Socket.io</p>
           </div>
 
-          <div className="border-l-2 border-green-400 pl-3 mt-3">
-            <h3 className="font-medium">LocalShop</h3>
-            <p className="text-xs text-gray-500">
-              E-commerce Platform with Python & Django
-            </p>
+          <div className="border-l-2 border-orange-400 pl-3">
+            <h3 className="font-medium text-xs">GroceryWalle</h3>
+            <p className="text-[11px] text-gray-500">React Native · Real-time Delivery</p>
+          </div>
+
+          <div className="border-l-2 border-cyan-400 pl-3">
+            <h3 className="font-medium text-xs">Urban App</h3>
+            <p className="text-[11px] text-gray-500">React Native · Customer + Provider</p>
           </div>
 
           {/* Explore Button */}
           <a
             href="/work"
-            className="mt-4 px-3 py-1.5 text-xs bg-transparent border border-gray-300 rounded hover:bg-gray-100 transition"
+            className="mt-2 px-3 py-1.5 text-xs bg-transparent border border-gray-300 rounded hover:bg-gray-100 transition inline-block"
           >
             View All Projects →
           </a>
@@ -249,10 +287,12 @@ const Book = () => {
         {/* Cover Page */}
         <div className="page bg-gradient-to-br from-blue-900/80 to-purple-900/80 backdrop-blur-sm">
           <div className="page-content flex flex-col items-center justify-center p-6 text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">My Diary</h1>
-            <p className="text-white/80">Flip to explore</p>
-            <div className="absolute bottom-6 right-6 text-xs text-white/50">
-              <div>Amar Patra</div>
+            <p className="text-sm tracking-widest text-white/50 uppercase mb-3">Portfolio</p>
+            <h1 className="text-4xl font-bold text-white mb-2">Amar Patra</h1>
+            <p className="text-white/70 text-lg font-light tracking-wide">My Diary</p>
+            <div className="w-12 h-0.5 bg-white/30 mx-auto my-4"></div>
+            <p className="text-white/40 text-xs">Flip to explore →</p>
+            <div className="absolute bottom-6 right-6 text-xs text-white/30">
               <div>Est. {new Date().getFullYear()}</div>
             </div>
           </div>

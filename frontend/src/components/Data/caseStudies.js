@@ -1,5 +1,120 @@
 const caseStudies = [
   {
+    title: "NBD Fashion – NearByDress",
+    description:
+      "A full-stack fashion e-commerce platform with role-based CRM architecture, Nginx reverse proxy, and geolocation-aware product discovery for local fashion brands.",
+    tags: ["MERN Stack", "Redux", "Nginx", "Role-Based CRM", "MongoDB"],
+    features: [
+      "Geolocation-based fashion product discovery",
+      "Role-based dashboards: Seller CRM & Admin CRM",
+      "Product listing, order management, and inventory control",
+      "Nginx reverse proxy for production deployment",
+      "Redux-powered state management across the platform",
+      "JWT auth with multi-role access control",
+    ],
+    technologies: [
+      { name: "Frontend", items: ["React.js", "Redux", "Tailwind CSS"] },
+      { name: "Backend", items: ["Node.js", "Express.js", "MongoDB Atlas"] },
+      { name: "DevOps", items: ["Nginx", "Vercel", "Render"] },
+    ],
+    challenges: [
+      "Building a unified platform for customers, sellers, and admins",
+      "Implementing Nginx as reverse proxy in production",
+      "Designing a scalable role-based access control system",
+    ],
+    solutions: [
+      "Architected separate route guards and dashboards per role",
+      "Configured Nginx with SSL termination and upstream proxying",
+      "Used JWT claims to dynamically render role-specific UI",
+    ],
+    results: [
+      "3 fully functional role-based dashboards in one platform",
+      "Production-grade deployment with Nginx reverse proxy",
+      "Seller & Admin CRM handling live product & order flows",
+    ],
+    links: {
+      demo: "https://near-by-dress.vercel.app/",
+      github: "https://github.com/Amar-H-G",
+    },
+  },
+  {
+    title: "Maidfort – Home Service Marketplace App",
+    description:
+      "A dual-app home services marketplace built with React Native — one for customers to book services and one for service providers to manage jobs, with real-time updates via Pusher and Socket.io.",
+    tags: ["React Native", "Pusher", "Socket.io", "OneSignal", "REST API"],
+    features: [
+      "Dual-app architecture: Customer app + Provider app",
+      "Real-time job assignment and status updates via Pusher",
+      "OneSignal push notifications for bookings and alerts",
+      "Live messaging between customers and service providers",
+      "Provider dashboard for job queue management",
+      "Cross-platform support for iOS and Android",
+    ],
+    technologies: [
+      { name: "Mobile", items: ["React Native", "Redux", "TypeScript"] },
+      { name: "Real-Time", items: ["Pusher", "Socket.io", "WebSockets"] },
+      { name: "Services", items: ["OneSignal", "REST API", "JWT Auth"] },
+    ],
+    challenges: [
+      "Keeping two separate apps in sync in real-time",
+      "Handling push notifications reliably across both platforms",
+      "Managing concurrent job states between provider and customer",
+    ],
+    solutions: [
+      "Used Pusher channels to broadcast job events to both apps simultaneously",
+      "Integrated OneSignal with platform-specific notification payloads",
+      "Implemented optimistic UI updates with server confirmation fallback",
+    ],
+    results: [
+      "Sub-second real-time job status updates across both apps",
+      "Reliable push delivery on both iOS and Android via OneSignal",
+      "Seamless dual-role experience in a single service ecosystem",
+    ],
+    links: {
+      demo: "#",
+      github: "https://github.com/Amar-H-G",
+    },
+  },
+  {
+    title: "Truties – Dating App",
+    description:
+      "A feature-rich dating application built with React Native, featuring real-time chat powered by Pusher, live video calling via Video SDK, and smart match notifications through OneSignal.",
+    tags: ["React Native", "Pusher", "Video SDK", "OneSignal", "Socket.io"],
+    features: [
+      "Smart match discovery with profile-based filtering",
+      "Real-time chat with typing indicators via Pusher channels",
+      "In-app video calling using Video SDK",
+      "OneSignal push notifications for new matches and messages",
+      "Like/pass interaction with real-time match detection",
+      "Media sharing in conversations",
+    ],
+    technologies: [
+      { name: "Mobile", items: ["React Native", "Redux", "TypeScript"] },
+      { name: "Real-Time", items: ["Pusher", "Socket.io"] },
+      { name: "Services", items: ["Video SDK", "OneSignal", "JWT Auth"] },
+    ],
+    challenges: [
+      "Integrating multiple real-time services (Pusher + Video SDK) without conflicts",
+      "Ensuring low-latency video calls on mobile networks",
+      "Handling match state changes reactively without page refresh",
+    ],
+    solutions: [
+      "Isolated Pusher and Video SDK into separate service layers with clean APIs",
+      "Used Video SDK's adaptive bitrate for reliable mobile video quality",
+      "Leveraged Pusher presence channels for live match event propagation",
+    ],
+    results: [
+      "Smooth real-time chat with <100ms message delivery",
+      "Stable in-app video calling across iOS and Android",
+      "Instant push alerts for matches and messages via OneSignal",
+    ],
+    links: {
+      demo: "#",
+      github: "https://github.com/Amar-H-G",
+    },
+  },
+
+  {
     title: "Questa - Quiz Platform",
     description:
       "A full-stack quiz creation and sharing platform with analytics dashboard",

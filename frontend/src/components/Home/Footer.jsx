@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Simple copyright text */}
           <div className="mb-4 md:mb-0 text-center md:text-left">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} My Portfolio. All rights reserved.
+              © {new Date().getFullYear()} Amar's Portfolio. All rights reserved.
             </p>
           </div>
 
@@ -45,9 +45,9 @@ const Footer = () => {
 
         {/* Simple credit line */}
         <div className="mt-4 text-center">
-          <p className="text-xs text-gray-500">
+          {/* <p className="text-xs text-gray-500">
             Built with React and Tailwind CSS
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
